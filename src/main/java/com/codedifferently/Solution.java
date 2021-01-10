@@ -7,7 +7,7 @@ import static java.util.Arrays.sort;
 
 public class Solution {
 
-    int matchingLetters;
+    // int matchingLetters;
 
     /**
      * String Scramble
@@ -26,15 +26,15 @@ public class Solution {
         // convert both to lower case
         // break strings into char arrays
         // sort each
-        // for each char in str1, see if str2 contains it
+        // for each char in str1, see if str2 contains it (maybe this should be worded the other way around, but the code doesn't care?)
         // if they are all contained return true
-
+/*
         int countLettersInStr1;
         int countLettersInStr2;
 
 
-        if (str1.length() < str2.length()) {
-            return false;
+       if (str1.length() < str2.length()) {
+         return false;
         } else {
             String str1Lc = str1.toLowerCase();
             String str2Lc = str2.toLowerCase();
@@ -56,8 +56,30 @@ public class Solution {
                 }
 
             }
-        }
         return false;
+       }
+
     }
 }
+*/
+
+        //from Alberto--so much better!
+
+        boolean match = false;
+        int counter = 0;
+        char[] str1Arr = str1.toCharArray();
+
+        for (char character : str1Arr) {
+            String temp = "" + character;
+            if (str2.contains(temp)) {
+                counter++;
+            }
+        }
+        if (str2.length() == counter) {
+            match = true;
+        }
+        return match;
+    }
+}
+
 
